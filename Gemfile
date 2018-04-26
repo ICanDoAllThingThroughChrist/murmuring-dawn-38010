@@ -33,22 +33,16 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+  # gem 'selenium-webdriver'
+  #gem 'cancancan', '~> 2.0'
+  gem 'bootstrap-sass'
+  gem 'will_paginate', '>= 3.0.pre'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'pry', '~> 0.10.3'
-  gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
-  gem 'carrierwave', '~> 0.11.2'
-  gem 'mini_magick', '~> 4.8'
-  gem "pundit"
-  gem "rolify"
-  #gem 'cancancan', '~> 2.0'
-  gem 'bootstrap-sass'
-  gem 'will_paginate', '>= 3.0.pre'
 end
 
 group :development do
