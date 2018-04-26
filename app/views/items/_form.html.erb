@@ -16,10 +16,10 @@
 <%= f.text_field :description%><br>
 <%= f.label :URL%><br>
 <%= f.text_field :URL%><br>
-<%= f.label :image %><br>
-<%= image_tag(item.image_url) if item.image? %><br>
-<%= f.file_field :image, accept: 'image/jpeg, image/gif, image/png' %><br>
-<%= f.hidden_field :image_cache %>
+# <%= f.label :image %><br>
+# <%= image_tag(item.image_url) if item.image? %><br>
+# <%= f.file_field :image, accept: 'image/jpeg, image/gif, image/png' %><br>
+# <%= f.hidden_field :image_cache %>
 <%= f.label "Select Box"%><br>
 <div class="form-group">
 <select name="item[box_ids][]" id="item_box_ids">
