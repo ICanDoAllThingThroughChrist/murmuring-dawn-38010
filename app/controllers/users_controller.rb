@@ -14,23 +14,17 @@ class UsersController < ApplicationController
     
     def new 
         @user = User.new
-            #binding.pry
     end 
 
     def create 
-        #binding.pry
         @user = User.new(user_params)
         if @user.save 
             UserMailer.account_activation(@user).deliver_now
-            #@user.send_activation_email
-            flash[:info] = "Please check your email to activate your account"
+               flash[:info] = "Please check your email to activate your account"
             redirect_to root_url
-            #log_in @user 
-            #flash[:success] = "Welcome"
-            #redirect_to @user 
         else 
             flash.now[:danger] = 'failed validations'
-            render 'login'
+            render '/'
         end 
     end 
 
