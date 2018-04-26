@@ -26,7 +26,7 @@ class Box < ApplicationRecord
         boxes= []
         boxes2= []
         boxes3= []
-        item_attributes.each do |key, value|
+        item_attributes.each_with_index do |key, value|
             if key == "0"##binding.pry
                 if value[:title].present?
                     ##binding.pry#self?
