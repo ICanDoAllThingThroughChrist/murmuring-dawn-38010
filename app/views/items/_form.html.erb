@@ -1,0 +1,45 @@
+<%= form_for(item) do |f| %>
+    <% if item.errors.any? %>
+    <div>
+    <h2><%= pluralize(item.errors.count, "error") %>
+    prohibited this item from being saved:</h2>
+    <ul>
+        <% item.errors.full_messages.each do |msg|%>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+    </div>
+    <% end %>
+<%= f.label :title %><br>
+<%= f.text_field :title%><br>
+<%= f.label :description %><br>
+<%= f.text_field :description%><br>
+<%= f.label :URL%><br>
+<%= f.text_field :URL%><br>
+<%= f.label :image %><br>
+<%= image_tag(item.image_url) if item.image? %><br>
+<%= f.file_field :image, accept: 'image/jpeg, image/gif, image/png' %><br>
+<%= f.hidden_field :image_cache %>
+<%= f.label "Select Box"%><br>
+<div class="form-group">
+<select name="item[box_ids][]" id="item_box_ids">
+        <% @boxes.each_with_index do |index,box| %><br>
+        <%# binding.pry %>
+        <%#https://stackoverflow.com/questions/48285481/how-do-you-use-a-single-select-dropdown-with-rails-has-many-through-association%>
+            <option value="<%= index[1] %>">
+                <%= index [0] %>
+            </option>
+        <% end %>
+</select>
+</div>
+<%= f.submit %>
+<% end %>
+
+<script type="text/javascript">
+$('#item_image').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+        alert ('Maximum file size is 5MB'. Please choose a smaller file.');
+    }
+  });
+</script>

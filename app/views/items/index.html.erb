@@ -1,0 +1,18 @@
+   <h1>items</h1>
+        <%= link_to "New item", new_item_path %>
+        <div id="items">
+          <% @items.each do |item| %>
+            <h2>Title: <%= link_to item.title, item %></h2>
+            <p>Description: <%= item.description %></p>
+            <p>Image: <%= image_tag(item.image) %></p>
+            <p>Size: <%= item.size %></p>
+            <p>URL: <%= item.URL %></p>
+            <% if admin %>
+            <%#!--As an administrator I want to be able to
+            add a new item to a box" (title, description, image, size, URL 
+            to buy more from amazon or other partners)%>
+            <p><%= button_to 'Add to Box', box_items_path(:item_id => item)%><p>
+            <% end %>
+             <%#= button_to 'Add to Cart', line_items_path(:product_id => product) %></h4>
+           <% end %>
+</div>

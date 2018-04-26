@@ -1,0 +1,6 @@
+<% @title = "Cat Store" %>
+<h1>Level:  <%= @subscription.level %></h1>
+<p>Description: <%= @subscription.description%></p>
+<p>Rate: <%= @subscription.rate%></p>
+<p>Purchase Subscription:
+<%= link_to 'purchase this subscription', new_order_url(@subscription)%></p>
