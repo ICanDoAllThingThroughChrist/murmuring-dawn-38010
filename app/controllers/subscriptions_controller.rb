@@ -12,7 +12,7 @@ class SubscriptionsController < ApplicationController
             @subscription = Subscription.new 
         end
         def create
-            binding.pry
+            #binding.pry
             if @subscription.save 
               flash[:notice] = "subscription has been created."
               redirect_to @subscription 
@@ -26,7 +26,7 @@ class SubscriptionsController < ApplicationController
             @subscription = Subscription.find(params[:id])
         end
         def update 
-            binding.pry
+            #binding.pry
             @subscription = Subscription.find(params[:id])
             if @subscription.update(subscription_params)
                 flash[:notice] = "subscription has been updated."
