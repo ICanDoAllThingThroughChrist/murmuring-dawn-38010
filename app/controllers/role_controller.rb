@@ -13,6 +13,7 @@ class RolesController < ApplicationController
     end
     def create 
         #binding.pry
+        @role = Role.new(role_params)
         if @role.save
             flash[:notice] = "new role created"
             redirect_to @role 
@@ -20,5 +21,9 @@ class RolesController < ApplicationController
             flash[:alert] = "new role has not been created"
             render "new"
         end 
+    end
+    private 
+    def role_params 
+        params.require(:role).permit(:name)
     end
 end
