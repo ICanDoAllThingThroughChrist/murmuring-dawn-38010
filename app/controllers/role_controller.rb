@@ -26,7 +26,7 @@ class RolesController < ApplicationController
         @role = Role.find(params[:id])
     end
     def update 
-        binding.pry
+        #binding.pry
         @role = Role.find(params[:id])
         if @role.update(role_params)
             flash[:notice] = "role has been updated."
