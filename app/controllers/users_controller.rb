@@ -24,7 +24,7 @@ class UsersController < ApplicationController
             redirect_to root_url
         else 
             flash.now[:danger] = 'failed validations'
-            render '/'
+            redirect_to root_url
         end 
     end 
 
