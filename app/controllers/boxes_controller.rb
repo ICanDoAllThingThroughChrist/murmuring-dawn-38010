@@ -36,7 +36,7 @@ class BoxesController < ApplicationController
                 @box.items.build
             end
             #@item = Item.all
-            @item = Item.select(:title).distinct
+            @item = Item.find_by_sql(["SELECT id, title FROM Items GROUP BY title"])
     end
     def create 
         #binding.pry
