@@ -12,7 +12,7 @@ class RolesController < ApplicationController
         @role = Role.new 
     end
     def create 
-        binding.pry
+        #binding.pry
         if @role.save
             flash[:notice] = "new role created"
             redirect_to @role 
