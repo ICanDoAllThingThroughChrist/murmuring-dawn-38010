@@ -36,7 +36,7 @@ class BoxesController < ApplicationController
                 @box.items.build
             end
             #@item = Item.all
-            @item = Item.group(:title)
+            @item = Item.select(:title).distinct
     end
     def create 
         #binding.pry
