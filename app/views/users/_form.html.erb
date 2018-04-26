@@ -9,7 +9,7 @@
 <%= f.password_field :password %><br>
 <%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation %><br>
-<%= f.collection_select :role_id, Role.all, :id %><br>
+<%= f.collection_select :role_id, Role.all, :id, :name %><br>
 <%= f.submit %>
 <% end %>
 <%# https://stackoverflow.com/questions/4380464/rails-form-for-selecting-an-existing-parent-when-creating-new-child-records%>
