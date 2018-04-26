@@ -3,7 +3,7 @@ class Item < ApplicationRecord
     #belongs_to :box_item
     has_many :box_items 
     has_many :boxes, through: :box_items
-    mount_uploader :image, ImageUploader
+    #mount_uploader :image, ImageUploader
     validate :image_size
 
     before_destroy :ensure_not_referenced_by_any_box_item
