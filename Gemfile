@@ -7,6 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'rails', '~> 5.1.5'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
@@ -39,6 +40,15 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'pry', '~> 0.10.3'
+  gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
+  gem 'carrierwave', '~> 0.11.2'
+  gem 'mini_magick', '~> 4.8'
+  gem "pundit"
+  gem "rolify"
+  #gem 'cancancan', '~> 2.0'
+  gem 'bootstrap-sass'
+  gem 'will_paginate', '>= 3.0.pre'
 end
 
 group :development do
