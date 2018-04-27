@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
     default from: "from@example.com"
   
-    def account_activation
+    def account_activation(user)
         @user = user
         mail to: user.email, subject: "Account activation"    
     end
