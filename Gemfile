@@ -38,19 +38,18 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
   gem 'bootstrap-sass'
   gem 'will_paginate', '>= 3.0.pre'
   gem 'paperclip'
-  # gem 'aws-sdk', '~> 2.3'
-  gem 'aws-sdk-s3', '~> 1.0.0.rc2'
+  gem 'aws-sdk-s3', '~> 1.9', '>= 1.9.1'
   gem 'carrierwave'
   gem 'mini_magick'
   gem 'fog-aws'
   gem 's3_direct_upload', '0.1.6'
-  gem 'dotenv-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'dotenv-rails'
 end
 
 group :development do
