@@ -58,7 +58,8 @@ class ItemsController < ApplicationController
 
 private
     def item_params
-        params.require(:item).permit(:title,:description,:image,:size,:URL,:image_cache,:remove_image,box_ids:[],:avatar)
+        params.require(:item).permit(:title, :description, :URL, :avatar, box_ids:[])
+        params.require(:friend).permit(:avatar, :name)
     end
 #As an administrator I want to be able to 
 # add a new item to a box"=>Admin::BoxItemsController#New;
