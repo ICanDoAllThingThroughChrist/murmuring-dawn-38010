@@ -5,6 +5,15 @@ class Item < ApplicationRecord
     has_many :boxes, through: :box_items
     #mount_uploader :image, ImageUploader
     #validate :image_size
+    # This method associates the attribute ":avatar" with a file attachment
+    has_attached_file :avatar, styles: {
+        thumb: '100x100>',
+        square: '200x200#',
+        medium: '300x300>'
+    }
+    # Validate the attached image is image/jpg, image/png, etc
+    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+end
 
     before_destroy :ensure_not_referenced_by_any_box_item
     def box_name=(name)
