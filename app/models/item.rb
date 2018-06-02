@@ -13,16 +13,15 @@ class Item < ApplicationRecord
     }
     # Validate the attached image is image/jpg, image/png, etc
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-end
 
     before_destroy :ensure_not_referenced_by_any_box_item
-    def box_name=(name)
+        def box_name=(name)
         self.box = Box.find_or_create_by(title: title)
-      end
+        end
     
-      def box_name
+        def box_name
          self.box.name
-      end
+        end
     
     private 
     # def ensure_not_referenced_by_any_box_item
