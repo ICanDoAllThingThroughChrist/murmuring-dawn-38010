@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
     def update 
         #binding.pry
         @item = Item.find(params[:id])
+       
         if @item.update(item_params)
             flash[:notice] = "item has been updated."
             redirect_to @item

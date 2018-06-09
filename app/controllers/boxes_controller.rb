@@ -132,6 +132,7 @@ private
         :shipped, :order_id,
         :user_id, :subscription_level,:month,
         :year,:title, item_ids:[],
-        items_attributes: [:title])
+        items_attributes: [:title], :created_at,
+        :updated_at)
     end
 end
