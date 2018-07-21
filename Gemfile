@@ -39,7 +39,7 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
   gem 'will_paginate', '>= 3.0.pre'
   gem 'paperclip'
   gem 'aws-sdk-s3', '~> 1.9', '>= 1.9.1'
-  gem 'carrierwave'
+  #gem 'carrierwave'
   gem 'mini_magick'
   gem 'fog-aws'
   gem 's3_direct_upload', '0.1.6'

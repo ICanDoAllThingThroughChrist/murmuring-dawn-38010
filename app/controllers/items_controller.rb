@@ -57,6 +57,15 @@ class ItemsController < ApplicationController
         redirect_to items_path
     end
 
+I found solution to this problem here
+
+Answer:
+
+def download
+  extension = File.extname(@asset.file_file_name)
+  send_data open("#{@asset.file.expiring_url(10000, :original)}").read, filename: "original_#{@asset.id}#{extension}", type: @asset.file_content_type
+end
+
 private
     def item_params
         params.require(:item).permit(:title, :description, :URL, :avatar, box_ids:[])
