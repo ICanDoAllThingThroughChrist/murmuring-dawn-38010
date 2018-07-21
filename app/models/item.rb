@@ -23,12 +23,12 @@ class Item < ApplicationRecord
          self.box.name
         end
     
-        def download_url(style_name=:original)
-            avatar.s3_bucket.objects[avatar.s3_object(style_name).key].url_for(:read,
-                :secure => true,
-                :expires => 24*3600,  # 24 hours
-                :response_content_disposition => "attachment; filename='#{avatar_file_name}'").to_s
-        end
+        # def download_url(style_name=:original)
+        #     avatar.s3_bucket.objects[avatar.s3_object(style_name).key].url_for(:read,
+        #         :secure => true,
+        #         :expires => 24*3600,  # 24 hours
+        #         :response_content_disposition => "attachment; filename='#{avatar_file_name}'").to_s
+        # end
     private 
     # def ensure_not_referenced_by_any_box_item
     #     unless :box_items.empty? 
