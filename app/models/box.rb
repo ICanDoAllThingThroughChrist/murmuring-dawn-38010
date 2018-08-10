@@ -3,6 +3,11 @@ class Box < ApplicationRecord
     has_many :box_items, dependent: :destroy
     has_many :items, through: :box_items
     accepts_nested_attributes_for :items
+    #member|box = Box|Member.create(params[:member])
+    #You can now set or update attributes on the 
+    #associated posts|items through an attribute hash for 
+    #a member: include the key :posts|items_attributes 
+    #with an array of hashes of post|items attributes as a value.
     belongs_to :user 
     belongs_to :order, touch: true
     scope :boxes_received, -> {where(received: true)}
