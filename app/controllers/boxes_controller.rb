@@ -133,5 +133,13 @@ private
         :user_id, :subscription_level,:month,
         :year,:title, item_ids:[],
         items_attributes: [:title])
+        # include 
+        #the key :posts_attributes with 
+        #an array of hashes of post attributes as a value.
+        #https://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html
+        #has_many generated methods     | habtm | has_many | has_many :through
+        #other_ids                      |   X   |    X     |    X
+        #https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html
+
     end
 end

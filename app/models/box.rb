@@ -12,7 +12,7 @@ class Box < ApplicationRecord
         if box_item 
             box_item.quantity += 1
         else 
-            box_item= self.box_items.build(item_ids: item_id)
+            box_item= self.box_items.build(item_ids: item_id)#this line builds association amongs all 3 models(box, box_items, item)
         end 
         box_item 
     end
