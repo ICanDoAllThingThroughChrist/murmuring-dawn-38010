@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
         def new
             @user = current_user
             @order = Order.new
+            @orders = Order.find_by_sql ["SELECT id FROM Orders WHERE user_id = ?", current_user]
             #binding.pry
         end
 
