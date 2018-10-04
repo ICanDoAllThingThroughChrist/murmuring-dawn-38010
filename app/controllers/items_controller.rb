@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     end
     def create
         #binding.pry
-        if current_user.role_id == 3
+        if current_user.role.id == 3
             @item = Item.new(item_params)
             if @item.save 
             flash[:notice] = "item has been created."
