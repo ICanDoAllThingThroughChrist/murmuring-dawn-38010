@@ -26,6 +26,7 @@ class UsersController < ApplicationController
                flash[:info] = "Please check your email to activate your account"
             redirect_to root_url
         else 
+            binding.pry
             flash.now[:danger] = 'failed validations'
             redirect_to root_url
         end 
