@@ -2,10 +2,12 @@ class AdminController < ApplicationController
   before_action :logged_in?
     def index
       @total_orders = Order.count
+      @boxes_received_last_week = Box.boxes_received_last_week.count
+      # @boxes_received_last_2_days = Box.boxes_received_last_2_days.count 
     end
     def manual_ship
       if admin
-          @subscriber_users_boxes = User.where("role_id == 8") && Order.where("cancellation = ?", cancellation = false) && Box.find_by_sql(["select * from boxes where shipped = ?",
+          @subscriber_users_boxes = User.where("role_id == 2") && Order.where("cancellation = ?", cancellation = false) && Box.find_by_sql(["select * from boxes where shipped = ?",
             shipped = false])
             #it to the history for all current 
             #subscribers - 

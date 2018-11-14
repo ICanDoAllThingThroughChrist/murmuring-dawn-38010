@@ -2,3 +2,4 @@
 <% time= Time.now%>
 <h3><%= time.strftime("Time is %m/%d/%Y, at %I:%M%p")  %></h3>
 <h4>We have <%= pluralize(@total_orders, "order") %></h4>
+<h4>We have <%= pluralize(@boxes_received_last_week, "box") %></h4>

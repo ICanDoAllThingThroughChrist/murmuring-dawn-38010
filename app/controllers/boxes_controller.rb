@@ -4,7 +4,7 @@ class BoxesController < ApplicationController
     before_action :admin, :only => [:create, :update]
    
     def index
-        @user= current_user 
+        @user= current_user
         # #binding.pry
         @user_boxes= []
         @user.orders.each do |order|
