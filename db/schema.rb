@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181109175518) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20181115142856) do
 
   create_table "box_items", force: :cascade do |t|
     t.integer "box_id"
@@ -36,6 +33,8 @@ ActiveRecord::Schema.define(version: 20181109175518) do
     t.integer "subscriber_box_id"
     t.boolean "received"
     t.integer "order_id"
+    t.string "task"
+    t.string "site"
   end
 
   create_table "items", force: :cascade do |t|
@@ -73,7 +72,7 @@ ActiveRecord::Schema.define(version: 20181109175518) do
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
-    t.bigint "resource_id"
+    t.integer "resource_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "access_level"
@@ -117,8 +116,8 @@ ActiveRecord::Schema.define(version: 20181109175518) do
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "role_id"
+    t.integer "user_id"
+    t.integer "role_id"
     t.index ["role_id"], name: "index_users_roles_on_role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
     t.index ["user_id"], name: "index_users_roles_on_user_id"

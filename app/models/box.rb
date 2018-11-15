@@ -2,7 +2,8 @@ class Box < ApplicationRecord
     #resourcify
     has_many :box_items, dependent: :destroy
     has_many :items, through: :box_items
-    accepts_nested_attributes_for :items#provides items_attributes=(item_attributes) method in this model
+    accepts_nested_attributes_for :items#provides items_attributes=(item_attributes) 
+    #method in this model
     #member|box = Box|Member.create(params[:member])
     #You can now set or update attributes on the 
     #associated posts|items through an attribute hash for 

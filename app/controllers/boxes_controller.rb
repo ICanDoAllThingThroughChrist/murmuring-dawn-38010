@@ -10,7 +10,8 @@ class BoxesController < ApplicationController
         @user.orders.each do |order|
           order.boxes.each do |box|
             #binding.pry
-            @user_boxes << box
+            @user_boxes << box.site
+            @user_boxes << box.task
           end 
         end
         @user_boxes
@@ -22,7 +23,7 @@ class BoxesController < ApplicationController
         #in box #1 to anyone who wants to see it 
         #means no current_user
         @box = Box.find(params[:id])
-        ##binding.pry
+        binding.pry
     end
 
     def new 
@@ -131,7 +132,7 @@ private
         params.require(:box).permit(
         :shipped, :order_id,
         :user_id, :subscription_level,:month,
-        :year,:title, item_ids:[],
+        :year,:title,:site, :task, item_ids:[],
         items_attributes: [:title])
         # include 
         #the key :posts_attributes with 
