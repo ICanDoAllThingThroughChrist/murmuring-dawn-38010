@@ -2,6 +2,7 @@
         <h4><%= link_to "New Box", new_box_path %></h4>
         <div>
         <% @user_boxes.each do |user_box| %>
+        <%# binding.pry %>
                 <% user_box_id= user_box.id%>
                 <% order_id= user_box.order.id %>
                 <% user_id= user_box.user_id %>

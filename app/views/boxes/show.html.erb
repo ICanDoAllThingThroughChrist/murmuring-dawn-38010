@@ -1,36 +1,4 @@
 <h1>Title:<%= @box.title %></h1>
-<h2>Site:<%= case @box.site 
-when "1" 
-then "5614 Neches" 
-when "2" 
-then "1245 Judiway" 
-when "3" 
-then "11500 S Post Oak" 
-when "4" 
-then "1502 Central" 
-when "5" 
-then "5900 Westpark" 
-end %></h2>
-<h2>Task:<%= case @box.task 
-when "1" 
-then "Quarterly Inspection PM" 
-when "2" 
-then "Weekly_Facility_Inspection_DAD"
-when "3" 
-then "Spill_Response_FM"
-when "4" 
-then "Monitoring_Pollution_Control_Monthly_Vendor"
-when "5" 
-then "Manifest_Truck_Wash_Quarterly_Vendor" 
-when "6" 
-then "Visual_Quarterly_DAD_FM"
-when "7" 
-then "Benchmark_Semi_Annual_Vendor"
-when "8" 
-then "Inspection_Annual_All_SW3P"
-when "9" 
-then "Signature_Annual__COO"
-end %></h2>
 <% #binding.pry %>
 <% @box.box_items.each do |box_item| %>
 <h3>Item Title: <%= "#{box_item.item.title}"%></h3>

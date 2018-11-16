@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181115142856) do
+ActiveRecord::Schema.define(version: 20181116195154) do
 
   create_table "box_items", force: :cascade do |t|
     t.integer "box_id"
@@ -50,6 +50,10 @@ ActiveRecord::Schema.define(version: 20181115142856) do
     t.string "avatar_content_type"
     t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer "site_id"
+    t.integer "task_id"
+    t.index ["site_id"], name: "index_items_on_site_id"
+    t.index ["task_id"], name: "index_items_on_task_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -82,6 +86,12 @@ ActiveRecord::Schema.define(version: 20181115142856) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
+  create_table "sites", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.string "level"
     t.string "description"
@@ -89,6 +99,12 @@ ActiveRecord::Schema.define(version: 20181115142856) do
     t.datetime "updated_at", null: false
     t.string "rate"
     t.integer "order_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

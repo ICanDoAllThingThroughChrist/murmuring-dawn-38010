@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
         #https://stackoverflow.com/questions/48285481/how-do-you-use-a-single-select-dropdown-with-rails-has-many-through-association
     end
     def create
-        #binding.pry
+       #binding.pry
         if current_user.role.id == 3
             @item = Item.new(item_params)
             if @item.save 
@@ -64,7 +64,15 @@ class ItemsController < ApplicationController
 
 private
     def item_params
-        params.require(:item).permit(:title, :description, :URL, :avatar, box_ids:[])
+        params.require(:item).permit(:title,
+        :site_name,
+        :task_name,
+        :description,
+        :site, :task,
+        :site_id, :task_id,
+        :URL,
+        :avatar,
+        box_ids:[])
     end
 #As an administrator I want to be able to 
 # add a new item to a box"=>Admin::BoxItemsController#New;

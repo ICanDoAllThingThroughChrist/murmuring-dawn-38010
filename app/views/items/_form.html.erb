@@ -18,6 +18,10 @@
 <%= f.text_field :URL%><br>
 <%= f.label :avatar %><br>
 <%= f.file_field :avatar %><br>
+<%= f.label "Select Task"%><br>
+<%= f.collection_select :task_id, Task.all, :id, :name %><br>
+<%= f.label "Select Site"%><br>
+<%= f.collection_select :site_id, Site.all, :id, :name %><br>
 <%= f.label "Select Box"%><br>
 <div class="form-group">
 <select name="item[box_ids][]" id="item_box_ids">

@@ -22,12 +22,6 @@
 <%= f.label :title %><br>
 <%= f.text_field :title%><br>
 <%= f.label :shipped %><%= f.check_box :shipped %><br>
-<%= f.label :site %><br>
-<% select_list = {Neches_5614: 1, Judiway_1245: 2,PostOak_11500: 3, Central_1502: 4, Westpark_5900: 5 }%>
-<%= f.select :site, select_list%><br>
-<%= f.label :task %><br>
-<% select_list = {Quarterly_Inspection_PM: 1, Weekly_Facility_Inspection_DAD: 2,Spill_Response_FM: 3, Monitoring_Pollution_Control_Monthly_Vendor: 4, Manifest_Truck_Wash_Quarterly_Vendor: 5, Visual_Quarterly_DAD_FM: 6, Benchmark_Semi_Annual_Vendor: 7, Inspection_Annual_All_SW3P: 8, Signature_Annual__COO:9 }%>
-<%= f.select :task, select_list%><br>
 <%= f.label "Select Item"%><br>
 <%= f.collection_check_boxes :item_ids, @item, :id, :title, prompt: true %><br>
 <%= f.fields_for :items do |item_fields| %>

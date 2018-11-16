@@ -1,5 +1,21 @@
 class Item < ApplicationRecord
     attr_accessor :image_cache, :image
+    belongs_to :site
+    belongs_to :task
+    def task_name=(name)
+        self.task = Task.find_by(name: name)
+    end
+    def task_name
+        #binding.pry
+        self.task ? self.task.name : nil
+    end
+    def site_name=(name)
+        self.site = Site.find_by(name: name)
+    end
+    def site_name
+        #binding.pry
+        self.site ? self.site.name : nil
+    end
     #belongs_to :box_item
     has_many :box_items 
     has_many :boxes, through: :box_items

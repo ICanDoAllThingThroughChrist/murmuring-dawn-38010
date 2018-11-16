@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 gem 'bundler', '~> 1.11', '>= 1.11.2'
 #gem 'has_scope'
-gem 'sqlite3', '~> 1.3', '>= 1.3.11'
+#gem 'sqlite3', '~> 1.3', '>= 1.3.11'
 #Use sqlite3 as gemthe database adapter for Active Record for rails c
 gem 'pry', '~> 0.10.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -15,7 +15,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'rails', '~> 5.1.5'
 # Use postgresql as the database adapter for Active Record
 # for Heroku push origin master
-#gem 'pg', '~> 0.18.4'
+gem 'pg', '~> 0.18.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

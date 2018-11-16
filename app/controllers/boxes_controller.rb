@@ -6,15 +6,16 @@ class BoxesController < ApplicationController
     def index
         @user= current_user
         # #binding.pry
-        @user_boxes= []
+        #@user_boxes= []
         @user.orders.each do |order|
           order.boxes.each do |box|
             #binding.pry
-            @user_boxes << box.site
-            @user_boxes << box.task
-          end 
+            @user_boxes= []
+            @user_boxes << box
+            end 
         end
         @user_boxes
+        #binding.pry
         @user_orders = Box.order(:id).paginate(page: params[:page], per_page: 1)
     end
 
@@ -23,7 +24,7 @@ class BoxesController < ApplicationController
         #in box #1 to anyone who wants to see it 
         #means no current_user
         @box = Box.find(params[:id])
-        binding.pry
+        #binding.pry
     end
 
     def new 

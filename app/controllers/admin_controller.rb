@@ -2,7 +2,8 @@ class AdminController < ApplicationController
   before_action :logged_in?
     def index
       @total_orders = Order.count
-      @boxes_received_last_week = Box.boxes_received_last_week.count
+      #binding.pry
+      @boxes_received_last_week = Box.count
       # @boxes_received_last_2_days = Box.boxes_received_last_2_days.count 
     end
     def manual_ship
