@@ -1,6 +1,7 @@
    <h1>Boxes</h1>
         <h4><%= link_to "New Box", new_box_path %></h4>
         <div>
+        <%# binding.pry %>
         <% @user_boxes.each do |user_box| %>
         <%# binding.pry %>
                 <% user_box_id= user_box.id%>
