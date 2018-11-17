@@ -5,10 +5,10 @@ class BoxesController < ApplicationController
    
     def index
         @user= current_user
-        # binding.pry
+        binding.pry
         #@user_boxes= []
         @user.orders.each do |order|
-        # binding.pry
+         binding.pry
             if order.boxes != 0
                 order.boxes.each do |box|
                     # binding.pry
