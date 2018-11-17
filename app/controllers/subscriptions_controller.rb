@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController 
         def index
-            @subscriptions = Subscription.all
+            @subscription = Subscription.all
+            @subscriptions = @subscription.order(:id)
         end
         def show 
             @subscription = Subscription.find(params[:id])
