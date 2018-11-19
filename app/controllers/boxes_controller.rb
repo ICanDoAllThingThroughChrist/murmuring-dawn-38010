@@ -5,19 +5,23 @@ class BoxesController < ApplicationController
    
     def index
         @user= current_user
-        binding.pry
-        #@user_boxes= []
-        @user.orders.each do |order|
-         binding.pry
-            if order.boxes != 0
-                order.boxes.each do |box|
-                    # binding.pry
-                    @user_boxes= []
-                    @user_boxes << box
-                    end 
-            else
-               @user_boxes= []
+        #binding.pry
+        @user_boxes= []
+        if @user.orders.count != 0 #orders require subscription before creation
+            #binding.pry
+            @user.orders.each do |order|
+            #binding.pry
+                if order.boxes != 0
+                    order.boxes.each do |box|
+                        #binding.pry
+                        @user_boxes << box
+                        end 
+                else
+                @user_boxes= []
+                end
             end
+        else
+          flash[:notice] = " please create order "
         end
         @user_boxes
         #binding.pry
