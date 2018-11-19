@@ -22,6 +22,8 @@
 <%= f.collection_select :task_id, Task.all, :id, :name %><br>
 <%= f.label "Select Site"%><br>
 <%= f.collection_select :site_id, Site.all, :id, :name %><br>
+<%= f.label "Select Frequency"%><br>
+<%= f.collection_select :frequency_id, Frequency.all, :id, :name %><br>
 <%= f.label "Select Box"%><br>
 <div class="form-group">
 <select name="item[box_ids][]" id="item_box_ids">

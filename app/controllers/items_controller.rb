@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
        #binding.pry
         if current_user.role.id == 3
             @item = Item.new(item_params)
+            binding.pry
             if @item.save 
             flash[:notice] = "item has been created."
             redirect_to @item 
@@ -70,6 +71,7 @@ private
         :description,
         :site, :task,
         :site_id, :task_id,
+        :frequency_id,
         :URL,
         :avatar,
         box_ids:[])
