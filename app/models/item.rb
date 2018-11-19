@@ -2,6 +2,7 @@ class Item < ApplicationRecord
     attr_accessor :image_cache, :image
     belongs_to :site
     belongs_to :task
+    belongs_to :frequency
     def task_name=(name)
         self.task = Task.find_by(name: name)
     end
