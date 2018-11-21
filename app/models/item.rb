@@ -1,22 +1,37 @@
 class Item < ApplicationRecord
     attr_accessor :image_cache, :image
-    belongs_to :site
-    belongs_to :task
-    belongs_to :frequency
-    def task_name=(name)
-        self.task = Task.find_by(name: name)
-    end
-    def task_name
-        #binding.pry
-        self.task ? self.task.name : nil
-    end
-    def site_name=(name)
-        self.site = Site.find_by(name: name)
-    end
-    def site_name
-        #binding.pry
-        self.site ? self.site.name : nil
-    end
+    enum frequency: {
+        "2018" => 0,
+        "2017" => 1,
+        "2016" => 2,
+        "2015" => 3,
+        "2014" => 4,
+        "2013" => 5,
+        "2012" => 6,
+    }
+    enum site: {
+        "NE Service Center"  => 0,
+        "NW Service Center" => 1,
+        "SE Service Center" => 2,
+        "SW Service Center" => 3,
+        "5900 Westpark"     => 4,
+    }
+    enum task: {
+        "Annual Site Inspection-All-SW3P-Members-Wksht-16-X" => 0,
+        "Annual Training"                                    => 1,
+        "Annual Monitoring-Vendor"                           => 2,
+        "Monthly Oil Water Separator Maintenance-Vendor"     => 3,
+        "Quarterly Truck Wash-Vendor"                        => 4,
+        "Quarterly Periodic Inspection-PM-Wkst-13"           => 5,
+        "Quarterly-Visual Monitoring-DAD-FM-Wksht-15"        => 6,
+        "Semi-Annual-Benchmark Monitoring-Vendor"            => 7,
+        "Weekly-Routine Facility Inspection-DAD-Wksht-7"     => 8,
+        "Weekly-Spill response, inventory log-FM-Wksht-8"    => 9,
+    }  
+    
+    # belongs_to :site
+    # belongs_to :task
+    # belongs_to :frequency
     #belongs_to :box_item
     has_many :box_items 
     has_many :boxes, through: :box_items

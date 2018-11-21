@@ -19,11 +19,13 @@
 <%= f.label :avatar %><br>
 <%= f.file_field :avatar %><br>
 <%= f.label "Select Task"%><br>
-<%= f.collection_select :task_id, Task.all, :id, :name %><br>
+<%= f.select :task, Item.tasks.keys, id: :item_task, prompt: 'select a task'%><br>
 <%= f.label "Select Site"%><br>
-<%= f.collection_select :site_id, Site.all, :id, :name %><br>
+<%= f.select :site, Item.sites.keys, id: :item_site,
+ prompt: 'select a site'%><br>
 <%= f.label "Select Frequency"%><br>
-<%= f.collection_select :frequency_id, Frequency.all, :id, :name %><br>
+<%= f.select :frequency, Item.frequencies.keys, id: :item_frequency,
+ prompt: 'select a frequency'%><br>
 <%= f.label "Select Box"%><br>
 <div class="form-group">
 <select name="item[box_ids][]" id="item_box_ids">
