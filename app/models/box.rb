@@ -11,13 +11,35 @@ class Box < ApplicationRecord
     #with an array of hashes of post|items attributes as a value.
     belongs_to :user 
     belongs_to :order, touch: true
-    scope :boxes_received, -> {where(received: true)}
-    week_time_range = (Time.now.midnight - 7.day)..Time.now.midnight
-    scope :boxes_received_last_week, -> {where(created_at: week_time_range)}
-    def self.user_order_boxes_yesterday
-        time_range = (Time.now.midnight - 2.day)..Time.now.midnight
-        User.joins(:boxes).where(boxes: { created_at: time_range })
-    end
+    enum frequency: {
+        "2018" => 0,
+        "2017" => 1,
+        "2016" => 2,
+        "2015" => 3,
+        "2014" => 4,
+        "2013" => 5,
+        "2012" => 6,
+    }
+    enum site: {
+        "NE Service Center"  => 0,
+        "NW Service Center" => 1,
+        "SE Service Center" => 2,
+        "SW Service Center" => 3,
+        "5900 Westpark"     => 4,
+    }
+    enum task: {
+        "Annual Site Inspection-All-SW3P-Members-Wksht-16-X" => 0,
+        "Annual Training"                                    => 1,
+        "Annual Monitoring-Vendor"                           => 2,
+        "Monthly Oil Water Separator Maintenance-Vendor"     => 3,
+        "Quarterly Truck Wash-Vendor"                        => 4,
+        "Quarterly Periodic Inspection-PM-Wkst-13"           => 5,
+        "Quarterly-Visual Monitoring-DAD-FM-Wksht-15"        => 6,
+        "Semi-Annual-Benchmark Monitoring-Vendor"            => 7,
+        "Weekly-Routine Facility Inspection-DAD-Wksht-7"     => 8,
+        "Weekly-Spill response, inventory log-FM-Wksht-8"    => 9,
+    }  
+    
     def add_item(item_id)
         box_item = self.box_items.find_by(item_id: item_id)
         if box_item 

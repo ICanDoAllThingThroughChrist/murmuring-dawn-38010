@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181121143924) do
+ActiveRecord::Schema.define(version: 20181125033534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,9 @@ ActiveRecord::Schema.define(version: 20181121143924) do
     t.integer "subscriber_box_id"
     t.boolean "received"
     t.integer "order_id"
-    t.string "task"
-    t.string "site"
+    t.integer "frequency"
+    t.integer "site"
+    t.integer "task"
   end
 
   create_table "frequencies", force: :cascade do |t|

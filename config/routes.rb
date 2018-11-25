@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/orders/:id' => 'orders#toggle_cancellation', :as => 'cancel_subscription'
   post '/orders/:id', to: 'orders#toggle_cancellation'
   get '/admin/manual_ship' => 'admin#manual_ship', :as => 'boxes_to_be_shipped'
+  
   # end
   resources :roles
   root 'sessions#new'

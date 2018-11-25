@@ -15,6 +15,7 @@ gem 'pry', '~> 0.10.3'
 gem 'rails', '~> 5.1.5'
 # Use postgresql as the database adapter for Active Record
 # for Heroku push origin master
+#gem 'pg', '~> 0.21.0'
 gem 'pg', '~> 0.18.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

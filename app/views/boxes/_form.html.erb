@@ -21,6 +21,15 @@
 <%= f.text_field :year%><br>
 <%= f.label :title %><br>
 <%= f.text_field :title%><br>
+<%= f.label "Select Task"%><br>
+<%= f.select :task, Box.tasks.keys, id: :box_task, 
+prompt: 'select a task'%><br>
+<%= f.label "Select Site"%><br>
+<%= f.select :site, Box.sites.keys, id: :box_site,
+ prompt: 'select a site'%><br>
+<%= f.label "Select Frequency"%><br>
+<%= f.select :frequency, Box.frequencies.keys, id: :box_frequency,
+ prompt: 'select a frequency'%><br>
 <%= f.label :shipped %><%= f.check_box :shipped %><br>
 <%= f.label "Select Item"%><br>
 <%= f.collection_check_boxes :item_ids, @item, :id, :title, prompt: true %><br>

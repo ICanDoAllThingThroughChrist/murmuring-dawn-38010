@@ -2,13 +2,14 @@ class BoxesController < ApplicationController
     # include CurrentBox
     include SessionsHelper
     before_action :admin, :only => [:create, :update]
-   
+
     def index
         @user= current_user
         #binding.pry
         @user_boxes= []
         if @user.orders.count != 0 #orders require subscription before creation
             #binding.pry
+            @current_user_boxes = @user.boxes
             @user.orders.each do |order|
             #binding.pry
                 if order.boxes != 0
@@ -140,6 +141,7 @@ private
         #and a title for the theme e.g. 
         #“cat coolers for summer”)
         params.require(:box).permit(
+        :frequency,
         :shipped, :order_id,
         :user_id, :subscription_level,:month,
         :year,:title,:site, :task, item_ids:[],
