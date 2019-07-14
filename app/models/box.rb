@@ -2,14 +2,14 @@ class Box < ApplicationRecord
     #resourcify
     has_many :box_items, dependent: :destroy
     has_many :items, through: :box_items
-    accepts_nested_attributes_for :items#provides items_attributes=(item_attributes) 
+    accepts_nested_attributes_for :items#provides items_attributes=(item_attributes)
     #method in this model
     #member|box = Box|Member.create(params[:member])
-    #You can now set or update attributes on the 
-    #associated posts|items through an attribute hash for 
-    #a member: include the key :posts|items_attributes 
+    #You can now set or update attributes on the
+    #associated posts|items through an attribute hash for
+    #a member: include the key :posts|items_attributes
     #with an array of hashes of post|items attributes as a value.
-    belongs_to :user 
+    belongs_to :user
     belongs_to :order, touch: true
     enum frequency: {
         "2018" => 0,
@@ -38,16 +38,16 @@ class Box < ApplicationRecord
         "Semi-Annual-Benchmark Monitoring-Vendor"            => 7,
         "Weekly-Routine Facility Inspection-DAD-Wksht-7"     => 8,
         "Weekly-Spill response, inventory log-FM-Wksht-8"    => 9,
-    }  
-    
+    }
+
     def add_item(item_id)
         box_item = self.box_items.find_by(item_id: item_id)
-        if box_item 
+        if box_item
             box_item.quantity += 1
-        else 
+        else
             box_item= self.box_items.build(item_ids: item_id)#this line builds association amongs all 3 models(box, box_items, item)
-        end 
-        box_item 
+        end
+        box_item
     end
 
     def self.boxes_received
@@ -64,10 +64,10 @@ class Box < ApplicationRecord
                 if value[:title].present?
                     ##binding.pry#self?
                     new_item= Item.find_by(title: value[:title])
-                    self.box_items                
+                    self.box_items
                     # #binding.pry
                     if new_item.present?
-                        self.box_items.each {|i| 
+                        self.box_items.each {|i|
                             if i.item_id == new_item.id
                             #binding.pry
                                 i.quantity +=1
@@ -87,7 +87,7 @@ class Box < ApplicationRecord
                     new_item= Item.find_by(title: value[:title])
                     self.box_items
                     if new_item.present?
-                        self.box_items.each {|i| 
+                        self.box_items.each {|i|
                             if i.item_id == new_item.id
                             #binding.pry
                                 i.quantity +=1
@@ -106,7 +106,7 @@ class Box < ApplicationRecord
                     new_item= Item.find_by(title: value[:title])
                     self.box_items
                     if new_item.present?
-                        self.box_items.each {|i| 
+                        self.box_items.each {|i|
                             if i.item_id == new_item.id
                             #binding.pry
                                 i.quantity +=1
@@ -120,7 +120,7 @@ class Box < ApplicationRecord
                        self.box_items.each {|i| boxes3 << i.item_id }
                     end
                 end
-            end 
+            end
             boxes
             #binding.pry
         end

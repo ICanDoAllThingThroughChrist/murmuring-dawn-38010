@@ -27,13 +27,13 @@ class Item < ApplicationRecord
         "Semi-Annual-Benchmark Monitoring-Vendor"            => 7,
         "Weekly-Routine Facility Inspection-DAD-Wksht-7"     => 8,
         "Weekly-Spill response, inventory log-FM-Wksht-8"    => 9,
-    }  
-    
+    }
+
     # belongs_to :site
     # belongs_to :task
     # belongs_to :frequency
     #belongs_to :box_item
-    has_many :box_items 
+    has_many :box_items
     has_many :boxes, through: :box_items
     #mount_uploader :image, ImageUploader
     #validate :image_size
@@ -43,6 +43,9 @@ class Item < ApplicationRecord
         square: '200x200#',
         medium: '300x300>'
     }
+    def extension_whitelist
+    %w(jpg jpeg gif png pdf)
+    end
     # Validate the attached image is image/jpg, image/png, etc
     validates_attachment_content_type :avatar, content_type:['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
     #validates_attachment_content_type :avatar, content_type: => /\Aimage\/.*\Z/
@@ -51,28 +54,28 @@ class Item < ApplicationRecord
         def box_name=(name)
         self.box = Box.find_or_create_by(title: title)
         end
-    
+
         def box_name
          self.box.name
         end
-    
+
         # def download_url(style_name=:original)
         #     avatar.s3_bucket.objects[avatar.s3_object(style_name).key].url_for(:read,
         #         :secure => true,
         #         :expires => 24*3600,  # 24 hours
         #         :response_content_disposition => "attachment; filename='#{avatar_file_name}'").to_s
         # end
-    private 
+    private
     # def ensure_not_referenced_by_any_box_item
-    #     unless :box_items.empty? 
-    #         errors.add(:base, 'Box Items present') 
-    #         throw :abort 
-    #     end 
-    # end 
+    #     unless :box_items.empty?
+    #         errors.add(:base, 'Box Items present')
+    #         throw :abort
+    #     end
+    # end
 
-    # def image_size 
-    #     if image.size > 5.megabytes 
+    # def image_size
+    #     if image.size > 5.megabytes
     #         errors.add(:image, "should be less than 5MB")
-    #     end 
+    #     end
     # end
 end
