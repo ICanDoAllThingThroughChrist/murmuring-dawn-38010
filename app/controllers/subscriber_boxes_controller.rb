@@ -1,42 +1,42 @@
 class SubscriberBoxesController < ApplicationController
 
     def index
-        @subscriber_boxes = SubscriberBox.all 
-    end 
+        @subscriber_boxes = SubscriberBox.all
+    end
 
-    def show 
+    def show
         @box = Box.find(params[:box_id])
-    end 
+    end
 
-    def new 
+    def new
         @subscriber_box = SubscriberBox.create
-        @box= @subscriber_box.boxes.create 
+        @box= @subscriber_box.boxes.create
         binding.pry
         3.times do
             @box.items.build
         end
         @item = Item.all
-        binding.pry
-    end 
+        #binding.pry
+    end
 
-    def create 
+    def create
         @box= Box.find(subscriber_box_params[:box_id])
         @box_order = SubscriberBox.create(subscriber_box_params)
         @box.subscriberboxes.push @box_order
         if @box.save
             flash[:notice]= "a new subscriber box is saved"
             render "show"
-        else  
+        else
             flash[:notice]= "subscriber box is not saved"
-        end 
-    end 
+        end
+    end
 
     def edit
         @box = Box.find(params[:box_id])
     end
 
-    def update 
-        binding.pry
+    def update
+        #binding.pry
         @box = Box.find(params[:box_id])
         if @box.update(subscription_params)
             flash[:notice] = "subscription has been updated."
@@ -46,7 +46,7 @@ class SubscriberBoxesController < ApplicationController
             render "edit"
         end
 
-    end 
+    end
     private
     def subscriber_box_params
         params.require(:subscriber_box).permit(:id, :box_id)
