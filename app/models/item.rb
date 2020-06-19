@@ -1,13 +1,20 @@
 class Item < ApplicationRecord
     attr_accessor :image_cache, :image
     enum frequency: {
-        "2018" => 0,
-        "2017" => 1,
-        "2016" => 2,
+        "2012" => 0,
+        "2013" => 1,
+        "2014" => 2,
         "2015" => 3,
-        "2014" => 4,
-        "2013" => 5,
-        "2012" => 6,
+        "2016" => 4,
+        "2017" => 5,
+        "2018" => 6,
+        "2019" => 7,
+        "2020" => 8,
+        "2021" => 9,
+        "2022" => 10,
+        "2023" => 11,
+        "2024" => 12,
+
     }
     enum site: {
         "NE Service Center"  => 0,
@@ -20,13 +27,17 @@ class Item < ApplicationRecord
         "Annual Site Inspection-All-SW3P-Members-Wksht-16-X" => 0,
         "Annual Training"                                    => 1,
         "Annual Monitoring-Vendor"                           => 2,
-        "Monthly Oil Water Separator Maintenance-Vendor"     => 3,
-        "Quarterly Truck Wash-Vendor"                        => 4,
-        "Quarterly Periodic Inspection-PM-Wkst-13"           => 5,
-        "Quarterly-Visual Monitoring-DAD-FM-Wksht-15"        => 6,
-        "Semi-Annual-Benchmark Monitoring-Vendor"            => 7,
-        "Weekly-Routine Facility Inspection-DAD-Wksht-7"     => 8,
-        "Weekly-Spill response, inventory log-FM-Wksht-8"    => 9,
+        "Annual Plan Certification"                          => 3,
+        "Monthly Oil Water Separator Maintenance-Vendor"     => 4,
+        "Monthly Inspections per PWE City Engineer"          => 5,
+        "Quarterly Truck Wash-Vendor"                        => 6,
+        "Quarterly Periodic Inspection-PM-Wkst-13"           => 7,
+        "Quarterly-Visual Monitoring-DAD-FM-Wksht-15"        => 8,
+        "Semi-Annual-Benchmark Monitoring-Vendor"            => 9,
+        "Weekly-Routine Facility Inspection-DAD-Wksht-7"     => 10,
+        "Weekly-Spill response, inventory log-FM-Wksht-8"    => 11,
+        "Weekly-Rain Gauge Monitoring"                       => 12,
+        "Instances-Rain Gauge Monitoring- During Rain"       => 13,
     }
 
     # belongs_to :site

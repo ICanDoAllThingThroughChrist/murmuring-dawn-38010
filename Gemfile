@@ -4,14 +4,14 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-gem 'bundler', '~> 1.11', '>= 1.11.2'
+gem 'bundler', '~> 2.0', '>= 2.0.2'
 #gem 'has_scope'
 #gem 'sqlite3', '~> 1.3', '>= 1.3.11'
 #Use sqlite3 as gemthe database adapter for Active Record for rails c
 gem 'pry', '~> 0.10.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-#gem 'bcrypt', '~> 3.1', '>= 3.1.12'
- gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+# gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'rails', '~> 5.1.5'
 # Use postgresql as the database adapter for Active Record
 # for Heroku push origin master
@@ -69,5 +69,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #ruby "2.5.1"
-#ruby "2.4.1"
-ruby '2.3.3'
+ruby "2.4.9"
+# ruby '2.3.3'
