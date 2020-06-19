@@ -90,7 +90,7 @@ GEM
       dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
     erubi (1.7.1)
-    excon (0.62.0)
+    excon (0.71.0)
     execjs (2.7.0)
     ffi (1.9.25)
     ffi (1.9.25-x64-mingw32)
@@ -242,7 +242,6 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2018.7)
       tzinfo (>= 1.0.0)
-    wdm (0.1.1)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -284,7 +283,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
-  wdm (>= 0.1.0)
   web-console (>= 3.3.0)
   will_paginate (>= 3.0.pre)
 
